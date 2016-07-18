@@ -1,0 +1,49 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="row">
+		<div class="col-md-3">
+			<?php echo $__env->make('users.partials.profile-section', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+
+		<div id="center-column" class="col-md-6">
+		
+				<div class="row feed-list">
+				
+
+					<?php if($feeds->count()): ?>
+
+						<?php foreach($feeds as $feed): ?>
+
+							<?php echo $__env->make('feeds.partials.feed-list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+						<?php endforeach; ?>
+
+						<div class="paginator text-center">
+						 	<?php echo $feeds->render(); ?>	
+						</div>
+					<?php else: ?>
+						<?php if(Auth::user()->is($user->id)): ?>
+							<div class="alert alert-info no-feeds-info" role="alert"><span class="glyphicon glyphicon-info-sign"></span> You haven't posted anything yet.
+							</div>
+
+						<?php else: ?>
+							<div class="alert alert-info no-feeds-info" role="alert"><span class="glyphicon glyphicon-info-sign"></span> <?php echo $user->firstname; ?> has't posted anything yet.
+						</div>
+
+						<?php endif; ?>
+
+						
+						
+					<?php endif; ?>
+
+				</div>
+
+		</div>
+
+		<div id="right-side-column" class="col-md-3">
+			<?php echo $__env->make('friends.partials.friend-chat-list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</div>	
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

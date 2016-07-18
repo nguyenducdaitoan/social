@@ -1,0 +1,64 @@
+<div class="center-form">
+	<?php echo Form::open(['route' => $path, 'class' => $formType]); ?>
+
+		<div class="form-group">
+			<?php echo Form::textarea('body', null, ['class' => 'form-control', 'rows' => 3, 'placeholder' => $placeholder]); ?>
+
+		</div>
+			<?php if(isset($sendingMessage)): ?>
+
+				<div class="form-group">
+					<?php echo Form::hidden('receiverId', $userId, ['class' => 'form-control']); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::hidden('senderId', $currentUserId, ['class' => 'form-control']); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::hidden('senderProfileImage', $currentUserProfileimage, ['class' => 'form-control']); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::hidden('senderName', $currentUserFirstname, ['class' => 'form-control']); ?>
+
+				</div>
+
+			<?php elseif(isset($sendingResponseMessage)): ?>
+
+				<div class="form-group">
+					<?php echo Form::hidden('responseId', $messageResponseId, ['class' => 'form-control']); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::hidden('messageId', $messageId, ['class' => 'form-control']); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::hidden('receiverId', $receiverId, ['class' => 'form-control']); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::hidden('senderId', $senderId, ['class' => 'form-control']); ?>
+
+				</div>
+			
+				<div class="form-group">
+					<?php echo Form::hidden('senderProfileImage', $senderProfileImage, ['class' => 'form-control']); ?>
+
+				</div>
+				<div class="form-group">
+					<?php echo Form::hidden('senderName', $senderName, ['class' => 'form-control']); ?>
+
+				</div>	
+
+
+			<?php endif; ?>
+
+		<div class="form-group center-form-submit">
+			<?php echo Form::submit($button, ['class' => 'btn btn-primary btn-xs']); ?>
+
+		</div>	
+	<?php echo Form::close(); ?>
+
+</div>

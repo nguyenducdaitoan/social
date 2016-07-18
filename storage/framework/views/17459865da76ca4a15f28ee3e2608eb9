@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Larasocial</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="shortcut icon" href="<?php echo e(asset('larasocialfavicon.ico')); ?>">
+	<link rel="stylesheet" href="<?php echo e(asset('css/libs.css')); ?>">
+	<link rel="stylesheet" href="<?php echo e(asset('css/main.css')); ?>">
+</head>
+<body data-spy="scroll" data-offset="0">
+	<div id="go-up"><a href="#main-feed"><span class="glyphicon glyphicon-eject"></span></a></div>
+	<?php echo $__env->make('layouts.partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<div class="container">
+	<?php echo $__env->make('layouts.partials.center-alert', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->yieldContent('content'); ?>	
+	</div>	
+	<?php echo $__env->make('users.partials.userid', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<div class="container" id="chat-container"></div>
+	<footer class="footer">			
+      <div class="container"> 
+        <p class="text-muted"><small>&copy; Labor Union Social 2016</small></p>               
+      </div>
+    </footer>
+    <script src="<?php echo e(asset('js/libs.js')); ?>"></script>
+    <!-- <script src="/js/socketio.min.js"></script> -->
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script src="<?php echo e(asset('js/main.js')); ?>"></script>
+</body>
+</htm>

@@ -1,0 +1,9 @@
+<?php if(Request::path() == 'messages/compose/'.$user->id): ?>
+
+	<a href="<?php echo url('users', $user->id); ?>" class="btn btn-primary btn-sm" role="button">Back</a>
+
+<?php else: ?>
+
+	<a href="<?php echo url('messages/compose', $user->id); ?>" class="btn btn-primary btn-sm" role="button">Message</a>						
+
+<?php endif; ?>

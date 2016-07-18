@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="bootstrap/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false">
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory>./tests/functional/</directory>
+            <directory>./tests/commands/TestCreateFeedCommand.php</directory>
+            <directory>./tests/commands/TestCreateFriendRequestCommand.php</directory>
+            <directory>./tests/commands/TestLoginUserCommand.php</directory>
+            <directory>./tests/commands/TestLogoutUserCommand.php</directory>
+            <directory>./tests/commands/TestRegisterUserCommand.php</directory>
+            <directory>./tests/commands/TestRemoveFriendCommand.php</directory>
+            <directory>./tests/commands/TestCreateMessageCommand.php</directory>
+            <directory>./tests/controllers/TestFeedController.php</directory>
+            <directory>./tests/controllers/TestFriendController.php</directory>
+            <directory>./tests/controllers/TestFriendRequestController.php</directory>
+            <directory>./tests/controllers/TestMessageController.php</directory>
+            <directory>./tests/controllers/TestRegistrationController.php</directory>
+            <directory>./tests/controllers/TestSessionController.php</directory>
+            <directory>./tests/controllers/TestUserController.php</directory>
+            <directory>./tests/events/TestFriendRequestWasSent.php</directory>
+            <directory>./tests/events/TestUserWasRegistered.php</directory>
+            <directory>./tests/handlers/TestEmailFriendRequest.php</directory>
+            <directory>./tests/handlers/TestEmailRegistrationConfirmation.php</directory>
+            <directory>./tests/repositories/TestFeedRepository.php</directory>
+            <directory>./tests/repositories/TestFriendRepository.php</directory>
+            <directory>./tests/repositories/TestUserRepository.php</directory> 
+            <directory>./tests/repositories/TestMessageRepository.php</directory>                
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="DB_PATH" value="storage/database.sqlite"/>
+    </php>
+</phpunit>

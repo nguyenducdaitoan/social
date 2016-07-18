@@ -1,0 +1,14 @@
+<div id="feedid<?php echo $feed->id; ?>" class="media listed-object">
+	<div class="pull-left">
+		<a href="<?php echo url('/users/'.$feed->user->id); ?>"><img class="media-object avatar medium-avatar" src="<?php echo $feed->user->profileimage; ?>" alt="<?php echo $feed->user->firstname; ?>"></a>
+		
+		
+	</div>
+	<div class="media-body">
+		<h4 class="media-heading"><?php echo $feed->user->firstname; ?></h4>
+		<p><?php echo $feed->created_at->diffForHumans(); ?></p>
+		<?php echo $feed->body; ?>
+
+				
+	</div>					
+</div>

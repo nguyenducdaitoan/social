@@ -1,0 +1,68 @@
+<!-- Navbar -->
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-brand"><a href="/">Labor Union Social</a></div>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+    <?php if(Auth::check()): ?>
+
+      <ul class="nav navbar-nav navbar-right">        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <img class="avatar small-avatar" src="<?php echo Auth::user()->profileimage; ?>" alt="<?php echo Auth::user()->firstname; ?>">
+                    
+          <?php echo Auth::user()->firstname; ?> 
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="<?php echo url('users'); ?>">Users</a></li>
+          <li><a href="<?php echo url('friends'); ?>">Friends</a></li>
+          <li><a href="<?php echo url('friend-requests'); ?>">Friend Requests</a></li>
+          <li><a href="<?php echo url('messages'); ?>">Messages</a></li>             
+          <li class="divider"></li>
+          <li><a class="logout-link" data-method="delete" href="<?php echo url('/logout'); ?>">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <?php echo Form::open(['route' => 'users_path', 'class'=>'navbar-form navbar-right']); ?>
+
+          <div class="form-group">
+            <?php echo Form::text('firstname', null, array('class' => 'form-control', 'placeholder' => 'Find users by name...', 'required' => 'required')); ?>
+
+          </div>                   
+          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search</button>
+      <?php echo Form::close(); ?>
+
+
+   <?php else: ?>
+      <?php echo Form::open(['route' => 'login_path', 'class'=>'navbar-form navbar-right']); ?>       
+        <div class="form-group">
+          <?php echo Form::email('email', null, ['class' => 'form-control login-form', 'placeholder' => 'Email', 'required' => 'required']); ?>
+
+        </div>
+        <div class="form-group">
+          <?php echo Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password', 'required' => 'required']); ?>
+
+        </div>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span> Sign in</button>
+      <?php echo Form::close(); ?>
+
+
+   <?php endif; ?>
+          
+
+
+
+    </div>
+</nav>
+<!-- Navbar -->

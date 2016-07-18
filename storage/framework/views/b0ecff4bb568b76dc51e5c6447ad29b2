@@ -1,0 +1,6 @@
+<?php if(Session::has('welcome-message')): ?>
+	<div class="alert alert-success flash-alert welcome-alert">
+		<?php echo Session::get('welcome-message'); ?>
+
+	</div>
+<?php endif; ?>

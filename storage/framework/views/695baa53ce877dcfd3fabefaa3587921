@@ -1,0 +1,45 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="row">
+		<div class="col-md-3">
+
+			<?php echo $__env->make('users.partials.profile-section', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			
+		</div>
+
+		<div id="center-column" class="col-md-6">
+			<?php if(count($friends)): ?>
+				<div class="users-list">
+
+					<?php foreach($friends as $friend): ?>
+						<div class="media listed-object-close">
+							<div class="pull-left">		
+								<a href="<?php echo url('/users/'.$friend['id']); ?>"><img class="media-object avatar medium-avatar" src="<?php echo $friend['profileimage']; ?>" alt="<?php echo $friend['firstname']; ?>"></a>		
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading"><?php echo $friend['firstname']; ?></h4>								
+								<div class="pull-right">																							
+									<a href="#" data-method="delete" data-userid="<?php echo $friend['id']; ?>" class="btn btn-primary unfriend-button-3 btn-sm" role="button">Unfriend</a>															
+								</div>		
+							</div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			<?php else: ?>
+
+				<div class="alert alert-info" role="alert"><span class="glyphicon glyphicon-info-sign"></span> You don't have any friends.</div>
+
+			<?php endif; ?>
+		
+				
+
+		</div>
+
+		<div id="right-side-column" class="col-md-3">
+			<?php echo $__env->make('friends.partials.friend-chat-list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+	</div>
+	
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
