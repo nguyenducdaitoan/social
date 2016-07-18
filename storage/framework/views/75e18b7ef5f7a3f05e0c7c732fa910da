@@ -1,1 +1,0 @@
-Hey <?php echo $userFirstname; ?>, <?php echo $requesterFirstname; ?> wants to be your friend!
